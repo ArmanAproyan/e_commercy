@@ -1,0 +1,64 @@
+import styles from './style.module.scss'
+import { MdFavoriteBorder } from "react-icons/md";
+import { IoIosBasket } from "react-icons/io";
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+interface InavBarItem {
+  id: number,
+  name: string,
+  navigate: string
+};
+
+const Header = () => {
+
+  const [selectedNav, setSelectedNav] = useState<number | null>(null);
+  const navigate = useNavigate();
+
+  const navBarItems: InavBarItem[] = [
+    { id: 1, name: 'Products', navigate: '/products' },
+    { id: 2, name: 'Users', navigate: '/users' },
+    { id: 3, name: 'Example1', navigate: '#' },
+    { id: 4, name: 'Example2', navigate: '#' },
+
+  ]
+
+  const handleChnageNav = (index: number) => {
+    setSelectedNav(index)
+  };
+
+  return (
+    <div className={styles.header}>
+      <div className={styles.logo}>
+        <div className={styles.logo_item}>
+          <img src="https://img.freepik.com/free-vector/bird-colorful-logo-gradient-vector_343694-1365.jpg" alt="" />
+        </div>
+      </div>
+      <nav className={styles.navbar}>
+        <ul>
+          {navBarItems.map((val, index) => {
+            return (
+              <li
+                onClick={() => {
+                  handleChnageNav(index)
+                  navigate(val.navigate)
+                }}
+                style={{ color: selectedNav == index ? 'gray' : '' }}
+              >{val.name}</li>
+            )
+          })}
+        </ul>
+      </nav>
+      <div className={styles.other}>
+        <div className={styles.other_basket}>
+          <IoIosBasket style={{ fontSize: '30px' }} />
+        </div>
+        <div className={styles.oter_favorites}>
+          <MdFavoriteBorder style={{ fontSize: '30px' }} />
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default Header
