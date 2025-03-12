@@ -1,31 +1,134 @@
-/* style.module.scss */
 .productList {
   width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  justify-content: space-around;
-  position: absolute;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); // Гибкий сеточный макет
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+  margin-top: 150px;
 }
 
 .productCart {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background: #fff;
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.productTitle {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+  margin: 15px 0;
+  text-align: center;
+}
+
+.productDescription {
+  font-size: 1rem;
+  color: #666;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.productDetails {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.productReviews {
+  color: gray;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.prodctBrand {
+  color: black;
+  font-size: 0.6;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.prodctBrand:hover {
+  text-decoration: underline;
+}
+
+
+.productReviews {
+  text-decoration: underline;
+}
+
+.productPrice {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #27ae60; // Зеленый цвет для цены
+}
+
+.productDiscount {
+  font-size: 1rem;
+  color: #e74c3c; // Красный цвет для скидки
+}
+
+.productRating {
+  font-size: 1rem;
+  display: flex;
   justify-content: center;
   align-items: center;
-  width: 500px;
-  padding: 10px;
-  border: 5px solid black;
+  color: #f39c12;
+}
 
+.ratingStars {
+  margin-left: 5px;
+}
+
+.productFooter {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.addToCartButton {
+  background-color: #3498db;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #2980b9;
+  }
 }
 
 .image {
-  width: 300px;
-  height: 300px;
-  position: relative;
+  width: 100%;
+  height: 250px; // Ограничиваем высоту изображения
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 10px;
+  margin-bottom: 15px;
 
   img {
     width: 100%;
     height: 100%;
+    object-fit: cover;
   }
 }
