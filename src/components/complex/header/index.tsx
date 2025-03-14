@@ -30,7 +30,9 @@ const Header = () => {
   return (
     <div className={styles.header}>
       <div className={styles.logo}>
-        <div className={styles.logo_item}>
+        <div onClick={() => {
+          navigate('/')
+        }} className={styles.logo_item}>
           <img src="https://img.freepik.com/free-vector/bird-colorful-logo-gradient-vector_343694-1365.jpg" alt="" />
         </div>
       </div>
@@ -39,6 +41,7 @@ const Header = () => {
           {navBarItems.map((val, index) => {
             return (
               <li
+              key={val.id}
                 onClick={() => {
                   handleChnageNav(index)
                   navigate(val.navigate)

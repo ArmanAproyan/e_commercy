@@ -1,0 +1,17 @@
+.reviews_block {
+    border: 1px solid  black;
+    position: absolute;
+    top: 30px;
+    transition: 1s;
+    animation: open 1s ease-in;
+}
+
+
+@keyframes open {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

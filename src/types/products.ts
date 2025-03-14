@@ -4,7 +4,7 @@ interface Dimensions {
     depth: number;
   }
   
-  interface Review {
+  export interface Review {
     rating: number;
     comment: string;
     date: string;
@@ -19,7 +19,7 @@ interface Dimensions {
     qrCode: string;
   }
   
-  interface Product {
+  export interface Product {
     id: number;
     title: string;
     description: string;

@@ -3,7 +3,6 @@ const Raiting = ({rating}: {rating: number}) => {
     const star = ['★', '★', '★', '★', '★'];
     const ratingNumber = Math.floor(rating)
 
-
     return (
         <div style={{display: 'flex'}}>
             {star.map((val, index) => {

@@ -4,9 +4,11 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation, Pagination, EffectCoverflow } from "swiper/modules";
 import styles from "./style.module.scss";
+import { useNavigate } from "react-router-dom";
 
 
-const Slider = ({ images }: { images: string[] }) => {
+const Slider = ({ images, id }: { images: string[], id: number }) => {
+  const navigate = useNavigate();
   return (
     <Swiper
       navigation
@@ -25,7 +27,7 @@ const Slider = ({ images }: { images: string[] }) => {
       className={styles.mySwiper}
     >
       {images.map((img, index) => (
-        <SwiperSlide key={index} className={styles.swiperSlide}>
+        <SwiperSlide onClick={() => navigate(`/products/${id}`)} key={index} className={styles.swiperSlide}>
           <img className={styles.slideImage} src={img} alt={`Slide ${index}`} />
         </SwiperSlide>
       ))}

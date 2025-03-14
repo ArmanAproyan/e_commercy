@@ -15,7 +15,7 @@ const Products = () => {
       {data?.products.map((val) => (
         <div className={styles.productCart} key={val.id}>
           <div className={styles.image}>
-            <Slider images={val.images} />
+            <Slider id={val.id} images={val.images} />
           </div>
           <h3 className={styles.productTitle}>{val.title}</h3>
           <div className={styles.prodctBrand}>
