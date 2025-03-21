@@ -3,6 +3,7 @@ import { MdFavoriteBorder } from "react-icons/md";
 import { IoIosBasket } from "react-icons/io";
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Product from '../../../types/products';
 
 interface InavBarItem {
   id: number,
@@ -10,7 +11,15 @@ interface InavBarItem {
   navigate: string
 };
 
-const Header = () => {
+
+interface IheaderProops {
+  handleBasketModale: () => void,
+  basketData: Product[] | null
+}
+
+
+
+const Header: React.FC<IheaderProops> = ({ handleBasketModale, basketData }) => {
 
   const [selectedNav, setSelectedNav] = useState<number | null>(null);
   const navigate = useNavigate();
@@ -41,7 +50,7 @@ const Header = () => {
           {navBarItems.map((val, index) => {
             return (
               <li
-              key={val.id}
+                key={val.id}
                 onClick={() => {
                   handleChnageNav(index)
                   navigate(val.navigate)
@@ -53,8 +62,9 @@ const Header = () => {
         </ul>
       </nav>
       <div className={styles.other}>
-        <div className={styles.other_basket}>
+        <div onClick={handleBasketModale} className={styles.other_basket}>
           <IoIosBasket style={{ fontSize: '30px' }} />
+          <span>{basketData?.length}</span>
         </div>
         <div className={styles.oter_favorites}>
           <MdFavoriteBorder style={{ fontSize: '30px' }} />

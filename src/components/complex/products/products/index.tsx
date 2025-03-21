@@ -1,14 +1,18 @@
 import Iproduct from "../../../../types/products";
+import Product from '../../../../types/products';
 import useFetch from "../../../../hooks/useFetch";
 import Raiting from "../../../simple/raiting";
 import styles from './style.module.scss';
 import Slider from "../../../simple/slider";
 
-const Products = () => {
-  const [data, loading, error] = useFetch<Iproduct>("https://dummyjson.com/products");
+interface Iproduct {
+  addToBasket: (produuct: Product) => void
+}
+
+const Products: React.FC<Iproduct> = ({addToBasket}) => {
+  const [data, loading, error] = useFetch<Product>("https://dummyjson.com/products");
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
-
 
   return (
     <div className={styles.productList}>
@@ -37,7 +41,7 @@ const Products = () => {
           </div>
 
           <div className={styles.productFooter}>
-            <button className={styles.addToCartButton}>Add to Cart</button>
+            <button onClick={() => addToBasket(val)} className={styles.addToCartButton}>Add to Cart</button>
           </div>
         </div>
       ))}

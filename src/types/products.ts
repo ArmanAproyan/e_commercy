@@ -44,7 +44,7 @@ interface Dimensions {
     thumbnail: string;
   }
   
-  interface Iproduct {
+  export interface Iproduct {
     limit: number,
     products: Product[],
     skip: number,

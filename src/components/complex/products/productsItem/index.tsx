@@ -5,6 +5,7 @@ import useFetch from '../../../../hooks/useFetch';
 import { Product } from '../../../../types/products';
 import Reviews from '../../../simple/reviews';
 import Raiting from '../../../simple/raiting';
+import { IoPerson } from "react-icons/io5";
 const ProductsItem = () => {
     const navigate = useNavigate();
     const { id } = useParams();
@@ -41,6 +42,26 @@ const ProductsItem = () => {
                                 <img onClick={() => handeChangeSelectedImage(img)} key={index} src={img} alt="product" className={styles.thumbnail} />
                             ))}
                         </div>
+                        <div className={styles.reviews_block}>
+                            {data.reviews.map((val) => {
+                                return (
+                                    <div className={styles.review}>
+                                        <div className={styles.review_image}>
+                                            <IoPerson/>
+                                        </div>
+                                        <div className={styles.review_reviewer_name}>
+                                            <b>{val.reviewerName}</b>
+                                        </div>
+                                        <div className={styles.review_comment}>
+                                            <span>{val.comment}</span>
+                                        </div>
+                                        <div className={styles.review_raiting}>
+                                            <Raiting rating={val.rating}/>
+                                        </div>
+                                    </div>
+                                )
+                            })}
+                        </div>
                     </div>
                     <div className={styles.info}>
                         <h2 className={styles.title}>{data.title}</h2>
@@ -72,7 +93,7 @@ const ProductsItem = () => {
                         </div>
                         <button className={styles.backButton} onClick={() => navigate(-1)}>Go Back</button>
                         <div onClick={handleReviews} className={styles.reviews}>
-                            <span>Reviews ({data.reviews?.length || 0})</span>
+                            {/* <span>Reviews ({data.reviews?.length || 0})</span> */}
                             {showReviews && <Reviews review={data.reviews} />}
                         </div>
                     </div>

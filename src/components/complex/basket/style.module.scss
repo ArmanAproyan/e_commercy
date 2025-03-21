@@ -1,0 +1,134 @@
+.container {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.582);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.basket {
+    width: 400px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: auto;
+    padding-top: 100px;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+
+    &_data {
+        width: 100%;
+        height: 120px;
+        border: 1px solid #e0e0e0;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+        box-sizing: border-box;
+        margin-bottom: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+        &:hover {
+            background-color: #f9f9f9;
+        }
+    }
+
+    .image_block {
+        width: 80px;
+        height: 80px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+    }
+
+    .info_block {
+        width: 250px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-left: 10px;
+        box-sizing: border-box;
+
+        .product_info {
+            display: flex;
+            flex-direction: column;
+
+            p {
+                margin: 0;
+                font-size: 14px;
+                color: #333;
+
+                span {
+                    font-weight: bold;
+                    color: #555;
+                }
+            }
+        }
+
+        .actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .action_button {
+                background-color: #007bff;
+                color: white;
+                border: none;
+                padding: 5px 10px;
+                border-radius: 5px;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: #0056b3;
+                }
+            }
+
+            .count {
+                font-size: 16px;
+                font-weight: bold;
+                color: #333;
+                padding: 0 10px;
+            }
+        }
+    }
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #ddd;
+
+    h2 {
+        font-size: 20px;
+        color: #333;
+    }
+
+    .close_button {
+        background-color: #f44336;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #d32f2f;
+        }
+    }
+}
